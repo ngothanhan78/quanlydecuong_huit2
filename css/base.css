@@ -1,0 +1,106 @@
+/* ════════════════════════════════════════════════════════════
+   base.css — CSS Variables, Reset, Typography
+   ════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+
+:root {
+  /* Brand colors */
+  --navy       : #0f1f3d;
+  --blue       : #1a56db;
+  --accent     : #0ea5a0;
+  --accent-light: #d1faf8;
+
+  /* UI neutrals */
+  --bg         : #f0f2f5;
+  --card       : #ffffff;
+  --border     : #dde1ea;
+  --text       : #111827;
+  --muted      : #6b7280;
+
+  /* Semantic */
+  --success    : #059669;
+  --danger     : #dc2626;
+  --warning    : #e67e22;
+
+  /* Layout */
+  --sidebar-w  : 300px;
+
+  /* Sidebar */
+  --sidebar-text  : rgba(255,255,255,.75);
+  --sidebar-active: #e0f2f1;
+
+  /* Font */
+  --font-body  : 'Source Sans 3', sans-serif;
+  --font-serif : 'Merriweather', serif;
+}
+
+html { scroll-behavior: smooth }
+
+body {
+  font-family : var(--font-body);
+  background  : var(--bg);
+  color       : var(--text);
+  min-height  : 100vh;
+  line-height : 1.6;
+  font-size   : 18px;
+}
+
+a { color: var(--blue); text-decoration: none }
+a:hover { text-decoration: underline }
+
+/* ── Utility ── */
+.hidden { display: none !important }
+.muted  { color: var(--muted) }
+.req    { color: var(--danger); margin-left: 2px }
+
+/* ── Toast notification ── */
+.toast {
+  position  : fixed; bottom: 28px; right: 28px; z-index: 9999;
+  background: var(--navy); color: #fff;
+  padding: 12px 20px; border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+  transform: translateY(100px); opacity: 0;
+  transition: all .3s ease;
+  max-width: 360px;
+}
+.toast.show  { transform: translateY(0); opacity: 1 }
+.toast.ok    { background: var(--success) }
+.toast.err   { background: var(--danger)  }
+
+/* ── Modal overlay ── */
+.modal-overlay {
+  display    : none; position: fixed; inset: 0;
+  background : rgba(0,0,0,.5); z-index: 1000;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.show { display: flex }
+.modal-box {
+  background    : var(--card);
+  border-radius : 16px;
+  padding       : 36px 40px;
+  width         : 460px;
+  max-width     : 90vw;
+  box-shadow    : 0 20px 60px rgba(0,0,0,.3);
+}
+.modal-box h3 {
+  font-family : var(--font-serif);
+  font-size   : 20px;
+  color       : var(--navy);
+  margin-bottom: 16px;
+}
+.modal-btns { display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px }
+
+/* ── Animations ── */
+@keyframes shake {
+  0%,100%{ transform: translateX(0) }
+  25%    { transform: translateX(-5px) }
+  75%    { transform: translateX(5px) }
+}
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(8px) }
+  to   { opacity:1; transform:translateY(0) }
+}

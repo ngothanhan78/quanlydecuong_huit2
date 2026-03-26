@@ -1,0 +1,251 @@
+/* ════════════════════════════════════════════════════════════
+   form.css — Form fields, Cards, Dynamic tables, Section nav
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Module form / Library padding ─────────────────────────── */
+#mod-form    { padding: 36px 44px }
+#mod-library { padding: 36px 44px }
+
+/* ── Page header ────────────────────────────────────────────── */
+.page-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--border) }
+.page-header .tag {
+  display: inline-block;
+  background: var(--accent-light); color: var(--accent);
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 4px; margin-bottom: 8px;
+}
+.page-header h2 { font-family: var(--font-serif); font-size: 32px; color: var(--navy) }
+.page-header p  { color: var(--muted); margin-top: 5px; font-size: 17px }
+
+/* ── Section visibility ─────────────────────────────────────── */
+.section        { display: none }
+.section.active { display: block }
+
+/* ── Card ───────────────────────────────────────────────────── */
+.card {
+  background    : var(--card);
+  border        : 1px solid var(--border);
+  border-radius : 12px;
+  padding       : 26px 30px;
+  margin-bottom : 18px;
+  box-shadow    : 0 1px 4px rgba(0,0,0,.05);
+}
+.card-title {
+  font-family  : var(--font-serif);
+  font-size    : 18px; color: var(--navy); font-weight: 700;
+  margin-bottom: 18px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display      : flex; align-items: center; gap: 8px;
+}
+.card-title::before {
+  content: ''; display: block;
+  width: 4px; height: 16px;
+  background: var(--accent); border-radius: 2px;
+}
+
+/* ── Form grid ──────────────────────────────────────────────── */
+.form-grid       { display: grid; grid-template-columns: 1fr 1fr; gap: 15px }
+.form-grid.three { grid-template-columns: 1fr 1fr 1fr }
+.form-grid.full  { grid-template-columns: 1fr }
+
+/* ── Field ──────────────────────────────────────────────────── */
+.field { display: flex; flex-direction: column; gap: 5px }
+.field label {
+  font-size: 14px; font-weight: 700; color: #374151;
+  letter-spacing: .02em; text-transform: uppercase;
+}
+.field input,
+.field select,
+.field textarea {
+  font-family  : var(--font-body);
+  font-size    : 17px; color: var(--text);
+  background   : #f0fdf4;
+  border       : 1.5px solid #86efac;
+  border-radius: 7px;
+  padding      : 10px 13px;
+  transition   : border-color .15s, background .15s;
+  outline      : none; resize: vertical;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  background: #dcfce7; border-color: #22c55e;
+}
+.field textarea  { min-height: 80px }
+.hint { font-size: 11px; color: var(--muted); font-style: italic }
+
+/* Indent variant */
+.indent-field { padding-left: 18px; border-left: 3px solid #4ade80; margin-left: 8px }
+
+/* Colspan helpers */
+.span-2 { grid-column: span 2 }
+.span-3 { grid-column: span 3 }
+
+/* Checkbox row */
+.checkbox-row { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 4px }
+.checkbox-label { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 15px }
+.checkbox-label input[type=checkbox] { width: 15px; height: 15px; accent-color: var(--blue) }
+
+/* Calc display */
+.calc-display {
+  background: #f0f4ff; border: 1.5px solid #c0cde8; border-radius: 6px;
+  padding: 8px 12px; font-size: 14px; font-weight: 600;
+  color: var(--navy); min-height: 36px;
+  display: flex; align-items: center;
+}
+
+/* Validation error */
+.field-empty {
+  border-color: var(--warning) !important;
+  background: #fffbf5 !important;
+  box-shadow: 0 0 0 2px rgba(230,126,34,.2) !important;
+  animation: shake .3s;
+}
+.field-empty-label { color: var(--warning); font-size: 11px; margin-top: 3px; display: block }
+
+.validate-bar {
+  display: none; align-items: center; gap: 8px;
+  padding: 10px 16px; background: #fef3e2;
+  border: 1.5px solid var(--warning); border-radius: 8px;
+  font-size: 13px; color: #a04000; margin-bottom: 14px;
+}
+.validate-bar.show { display: flex }
+
+/* ── Dynamic tables ─────────────────────────────────────────── */
+.dyn-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 6px }
+.dyn-table th {
+  background: var(--navy); color: rgba(255,255,255,.85);
+  padding: 8px 10px; font-weight: 600; font-size: 11px;
+  text-align: center; letter-spacing: .04em; text-transform: uppercase;
+}
+.dyn-table td { padding: 5px 7px; border-bottom: 1px solid var(--border) }
+.dyn-table tr:last-child td { border-bottom: none }
+
+.dyn-table input,
+.dyn-table select,
+.dyn-table textarea {
+  width: 100%; font-family: var(--font-body); font-size: 15px;
+  border: 1px solid var(--border); border-radius: 5px;
+  padding: 5px 7px; background: transparent; outline: none; resize: none;
+}
+.dyn-table .col-center input,
+.dyn-table .col-center select { text-align: center }
+.dyn-table .col-right  input,
+.dyn-table .col-right  select { text-align: right }
+.dyn-table input:focus,
+.dyn-table select:focus,
+.dyn-table textarea:focus { border-color: var(--blue); background: #fff }
+.dyn-table textarea { min-height: 44px }
+
+.btn-add {
+  background: var(--blue); color: #fff; border: none;
+  border-radius: 5px; font-family: var(--font-body);
+  font-size: 12px; font-weight: 600; padding: 5px 12px;
+  cursor: pointer; margin-top: 8px;
+}
+.btn-add:hover { opacity: .85 }
+.btn-del {
+  background: #fde8e8; color: #c0392b; border: none;
+  border-radius: 5px; font-family: var(--font-body);
+  font-size: 12px; font-weight: 600; padding: 4px 10px; cursor: pointer;
+}
+
+/* ── Section navigation ─────────────────────────────────────── */
+.section-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border);
+}
+.btn-nav {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 20px; border-radius: 8px;
+  border: 1.5px solid var(--border); background: var(--card);
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all .15s; color: var(--text);
+}
+.btn-nav:hover { border-color: var(--blue); color: var(--blue) }
+.btn-nav.primary {
+  background: linear-gradient(135deg, var(--blue), #1648c5);
+  color: #fff; border-color: var(--blue);
+  box-shadow: 0 2px 8px rgba(26,86,219,.25);
+}
+.btn-nav.primary:hover {
+  background: linear-gradient(135deg, #1648c5, var(--accent));
+  box-shadow: 0 4px 14px rgba(26,86,219,.3);
+}
+.btn-nav:disabled { opacity: .4; cursor: not-allowed }
+
+/* Finish buttons */
+.finish-btns { display: flex; gap: 10px; flex-wrap: wrap }
+.btn-finish {
+  padding: 12px 22px; border-radius: 8px;
+  font-family: var(--font-body); font-size: 14px; font-weight: 700;
+  cursor: pointer; border: none; transition: all .2s;
+  display: flex; align-items: center; gap: 7px;
+}
+.btn-finish.gold  { background: linear-gradient(135deg, var(--accent), #0d7a77); color: #fff }
+.btn-finish.blue  { background: var(--blue); color: #fff }
+.btn-finish.red   { background: #c0392b; color: #fff }
+.btn-finish:disabled { opacity: .35; cursor: not-allowed }
+
+/* ── Library ────────────────────────────────────────────────── */
+.lib-topbar { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; flex-wrap: wrap }
+.lib-back {
+  background: none; border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 7px 14px; font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  cursor: pointer; color: var(--muted); transition: all .15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.lib-back:hover { border-color: var(--blue); color: var(--blue) }
+.lib-title { font-family: var(--font-serif); font-size: 22px; color: var(--navy); flex: 1 }
+.lib-searchbox { position: relative }
+.lib-searchbox input {
+  padding: 8px 14px 8px 34px;
+  border: 1.5px solid var(--border); border-radius: 8px;
+  font-family: var(--font-body); font-size: 13px;
+  outline: none; background: #fafaf8; width: 230px; transition: border-color .15s;
+}
+.lib-searchbox input:focus { border-color: var(--blue); background: #fff }
+.lib-searchbox::before {
+  content: '🔍'; position: absolute; left: 10px; top: 50%;
+  transform: translateY(-50%); pointer-events: none; font-size: 13px;
+}
+.lib-wrap {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.lib-tbl { width: 100%; border-collapse: collapse; font-size: 15px }
+.lib-tbl th {
+  background: var(--navy); color: rgba(255,255,255,.85);
+  padding: 11px 16px; font-size: 11px; text-transform: uppercase;
+  letter-spacing: .05em; text-align: left;
+}
+.lib-tbl td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle }
+.lib-tbl tr:last-child td { border-bottom: none }
+.lib-tbl tr:hover td { background: #f7f6f2 }
+.ver-pill {
+  display: inline-block; background: #eef2ff; color: var(--blue);
+  font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px;
+}
+.dl-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 6px 13px; border-radius: 6px;
+  font-size: 12px; font-weight: 600;
+  background: var(--blue); color: #fff; text-decoration: none;
+  white-space: nowrap; transition: opacity .15s;
+}
+.dl-btn:hover { opacity: .82 }
+.lib-state { padding: 52px 20px; text-align: center; color: var(--muted) }
+.lib-state .icon { font-size: 38px; margin-bottom: 10px }
+
+/* Edit button in library */
+.edit-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 11px; border-radius: 6px;
+  font-size: 12px; font-weight: 600;
+  background: #fff3cd; color: #856404;
+  border: 1.5px solid #ffc107;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+  font-family: var(--font-body);
+}
+.edit-btn:hover { background: #ffc107; color: #fff }
