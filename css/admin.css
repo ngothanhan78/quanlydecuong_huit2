@@ -1,0 +1,269 @@
+/* ════════════════════════════════════════════════════════════════
+   admin.css — Styles cho module Admin
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Admin tabs ─────────────────────────────────────────────────── */
+.admin-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1.5px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.admin-tab {
+  padding: 8px 18px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;
+  border-radius: 4px 4px 0 0;
+  transition: color .15s, border-color .15s;
+}
+
+.admin-tab:hover  { color: var(--text); }
+.admin-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* ── Admin sub-panels ────────────────────────────────────────────── */
+.admin-panel          { display: none; }
+.admin-panel.active   { display: block; }
+
+/* ── Admin table ────────────────────────────────────────────────── */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--card);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.admin-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light, #f0ede8);
+  vertical-align: middle;
+}
+
+.admin-table tr:hover td { background: var(--card); }
+
+/* ── Status pill ────────────────────────────────────────────────── */
+.status-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+
+.status-pill.active   { background: #EAF3DE; color: #3B6D11; }
+.status-pill.disabled { background: #FCEBEB; color: #A32D2D; }
+
+/* ── Toggle switch (bật/tắt quyền nhập đề cương) ───────────────── */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--border);
+  border-radius: 20px;
+  transition: background .2s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+
+.toggle-switch input:checked + .toggle-slider            { background: #1D9E75; }
+.toggle-switch input:checked + .toggle-slider::before   { transform: translateX(16px); }
+
+.form-access-on {
+  font-size: 11px;
+  color: #3B6D11;
+  font-weight: 600;
+}
+
+/* ── Admin buttons ──────────────────────────────────────────────── */
+.admin-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+
+.admin-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+.admin-btn.danger-sm {
+  border-color: #F09595;
+  color: #A32D2D;
+  background: #FCEBEB;
+}
+
+.admin-btn.danger-sm:hover { background: #E24B4A; color: #fff; border-color: #E24B4A; }
+
+/* ── Admin select ───────────────────────────────────────────────── */
+.admin-select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.admin-select:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ── Add Register form ──────────────────────────────────────────── */
+.admin-add-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  padding: 14px;
+  background: var(--card);
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+}
+
+.admin-add-form input,
+.admin-add-form select {
+  padding: 7px 10px;
+  border-radius: 7px;
+  border: 1.5px solid var(--border);
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  min-width: 140px;
+}
+
+.admin-btn-primary {
+  padding: 7px 16px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+
+.admin-btn-primary:hover { opacity: .85; }
+
+/* ── Menu data editor ───────────────────────────────────────────── */
+.sheet-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sheet-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.sheet-pill:hover  { border-color: var(--blue); color: var(--blue); }
+.sheet-pill.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+.menu-editor-box {
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--card);
+}
+
+.menu-editor-box h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+#menuTextarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 10px;
+  border-radius: 7px;
+  border: 1.5px solid var(--border);
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+  font-family: var(--font-mono, monospace);
+  box-sizing: border-box;
+}
+
+.menu-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 6px 0 12px;
+}
+
+/* ── Admin module wrapper ────────────────────────────────────────── */
+#mod-admin,
+#mod-tonghop {
+  padding: 36px 40px;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.admin-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}

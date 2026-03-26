@@ -1,0 +1,51 @@
+/* tonghop.css — dùng đúng CSS vars của app */
+
+.th-tabs { display:flex; gap:4px; border-bottom:1.5px solid var(--border); margin-bottom:20px; }
+.th-tab { padding:8px 18px; border:none; background:none; font-size:13px; font-weight:600; color:var(--muted); cursor:pointer; border-bottom:2.5px solid transparent; margin-bottom:-1.5px; border-radius:4px 4px 0 0; transition:color .15s,border-color .15s; }
+.th-tab:hover  { color:var(--text); }
+.th-tab.active { color:var(--blue); border-bottom-color:var(--blue); }
+
+.th-panel        { display:none; }
+.th-panel.active { display:block; }
+
+.th-loading { display:none; padding:12px 16px; background:var(--card); border:1px solid var(--border); border-radius:8px; font-size:13px; color:var(--muted); margin-bottom:14px; animation:th-pulse 1.5s ease-in-out infinite; }
+@keyframes th-pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+.th-badge { display:inline-block; font-size:12px; font-weight:600; padding:3px 10px; border-radius:20px; margin-right:8px; }
+.th-badge.green { background:#d1fae5; color:#065f46; }
+.th-badge.red   { background:#fee2e2; color:#991b1b; }
+.th-badge.gray  { background:var(--bg); color:var(--muted); border:1px solid var(--border); }
+
+.th-summary { display:flex; align-items:center; gap:8px; margin-bottom:14px; padding:10px 14px; background:var(--card); border-radius:8px; border:1px solid var(--border); }
+
+.th-table { width:100%; border-collapse:collapse; font-size:13px; background:var(--card); border-radius:8px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+.th-table th { text-align:left; padding:10px 12px; background:var(--bg); color:var(--muted); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; border-bottom:1.5px solid var(--border); }
+.th-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text); font-size:13px; }
+.th-table tr:last-child td { border-bottom:none; }
+.th-table tr:hover td { background:var(--bg); }
+
+.th-btn { display:inline-flex; align-items:center; gap:6px; padding:8px 18px; border-radius:8px; border:1.5px solid var(--border); background:var(--card); color:var(--text); font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; margin-right:8px; margin-bottom:8px; }
+.th-btn:hover    { background:var(--navy); color:#fff; border-color:var(--navy); }
+.th-btn:disabled { opacity:.45; cursor:not-allowed; }
+.th-btn.primary  { background:var(--blue); color:#fff; border-color:var(--blue); }
+.th-btn.primary:hover { background:#1446b0; border-color:#1446b0; }
+.th-btn.success  { background:var(--success); color:#fff; border-color:var(--success); }
+.th-btn.success:hover { background:#047857; border-color:#047857; }
+
+.th-result-box { border:1.5px solid #a7f3d0; border-radius:10px; padding:18px 20px; margin-top:16px; background:#f0fdf4; }
+.th-result-box h4 { margin:0 0 14px; font-size:14px; font-weight:700; color:#065f46; }
+.th-link-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; font-size:13px; }
+.th-link-row label { min-width:220px; color:var(--muted); font-weight:600; flex-shrink:0; }
+.th-link-row a { color:var(--blue); text-decoration:none; word-break:break-all; }
+.th-link-row a:hover { text-decoration:underline; }
+
+.th-select { padding:8px 12px; border-radius:8px; border:1.5px solid var(--border); background:var(--card); color:var(--text); font-size:13px; min-width:220px; margin-right:8px; margin-bottom:8px; cursor:pointer; }
+.th-select:focus { outline:none; border-color:var(--blue); }
+
+.th-warn { display:none; background:#fef3c7; border:1px solid #fcd34d; border-radius:8px; padding:10px 14px; color:#92400e; font-size:12px; margin-top:10px; line-height:1.6; }
+
+.th-header { display:flex; align-items:center; gap:10px; margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid var(--border); }
+.th-header h2 { font-size:20px; font-weight:700; color:var(--navy); margin:0; }
+
+#mod-admin,
+#mod-tonghop { padding:36px 40px; }
